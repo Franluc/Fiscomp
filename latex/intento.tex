@@ -1,0 +1,131 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.1 distribution.
+%   Version 4.1r of REVTeX, August 2010
+%
+%   Copyright (c) 2009, 2010 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.1
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[
+ reprint,
+ amsmath,amssymb,
+ aps,
+ a4paper
+]{revtex4-1}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+\usepackage{datetime}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{float} % PARA USAR EL [H]
+\usepackage{subfig} % PARA PONER SUBFIGURAS
+\usepackage{listings} % PARA CODIGO
+\usepackage{framed} % PARA CAJITAS
+\lstset{ %
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  }
+
+\decimalpoint
+
+
+\begin{document}
+
+\title{Difusión en materia nuclear - Nuclear matter difussion}
+
+\author{Franco Tavella}%
+ \email{tavellafran@gmail.com}
+\affiliation{%
+ Departamento de F\'\i sica, Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires,\\
+ Pabell\'on I, Ciudad Universitaria, 1428 Buenos Aires, Argentina. 
+}%
+
+\author{Lucas Longo}%
+ \email{lucaslongo52@gmail.com}
+\affiliation{%
+ Departamento de F\'\i sica, Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires,\\
+ Pabell\'on I, Ciudad Universitaria, 1428 Buenos Aires, Argentina. 
+}%
+
+\date{\today}
+
+\begin{abstract}
+ABSTRACT
+
+\end{abstract}
+
+\maketitle
+
+
+\section{\label{seq:intro}Introducción}
+
+Potenciales y fuerzas discretizadas que se usan en la simulación, figuras \ref{fig:pots} y \ref{fig:forcs}. Podemos observar comportamientos repulsivos para todos los casos.
+\begin{figure}[H]
+\centerline{
+  \includegraphics[width=1.0\linewidth]{potentials.png}}
+  \caption{\small Potenciales discretizados. Tenemos dos tipos, uno para particulas iguales y otro para particulas diferentes.}
+  \label{fig:pots}
+\end{figure}
+
+\begin{figure}[H]
+\centerline{
+  \includegraphics[width=1.0\linewidth]{forces.png}}
+  \caption{\small Fuerzas discretizadas. Tenemos dos tipos, uno para particulas iguales y otro para particulas diferentes.}
+  \label{fig:forcs}
+\end{figure}
+
+\section{\label{seq:difu}Difusión}
+La ecuación de difusión describe el comportamiento colectivo de partículas microscópicas que resulta de su movimiento aleatorio. Se puede arribar a ella a partir de la ecuación de continuidad junto con la primer ley fenomenológica de Fick.
+\begin{equation}\label{eq:cont}
+\frac{\partial \phi}{\partial t} + \nabla \cdot \vec{j}  = 0
+\end{equation}
+\begin{equation}
+\vec{j} = - D(\phi,r)\nabla \phi(r,t)
+\end{equation}
+en donde $\phi(r,t)$ es la densidad de la sustancia que difunde y $D(\phi,r)$ el coeficiente de difusión colectivo. Para un caso isótropo y homogéneo pensamos a $D(\phi,r) = D$ como una constante y obtenemos una ecuación análoga a la del calor
+\begin{equation}\label{eq:difu}
+\frac{\partial \phi(r,t)}{\partial t} = D \nabla^{2}\phi(r,t)
+\end{equation}
+
+\section{\label{seq:discre}Discretización}
+Para la obtención del coeficiente de difusión $D$ debemos resolver la ecuación \ref{eq:difu}. Para ello debemos medir de las simulaciones la cantidad $\phi(r,t)$. Realizaremos una discretización espacial y otra temporal. Utilizaremos los subíndices $i$, $j$ y $k$ para indicar las subceldas espaciales correspondientes a las direcciones $x$, $y$ y $z$ respectivamente. El grillado será isótropo y homogéneo. Temporalmente utilizaremos el subíndice $n$. Entonces tendremos las siguientes cantidades si dividimos cada dirección en $m$ espacios y la caja de simulación posee longitud $L$
+\begin{equation}
+\phi(r_{i,j,k},t_{n}) = \frac{m^{3}}{L^{3}}N_{i,j,k} 
+\end{equation}
+en donde $r_{i,j,k}$ representa la posición de la celda i-j-k-ésima y $N_{i,j,k}$ el número de partículas en ésta.
+\section{\label{seq:desa}Desarrollo}
+
+\section{\label{seq:details}Detalles técnicos}
+Las posiciones de las partículas son obtenidas a través del comando $dump$ en LAMMPS. En la documentación\cite{dumplammps} sobre este comando se hace una aclaración sobre las condiciones periódicas de contorno
+\begin{framed}
+\textit{Because periodic boundary conditions are enforced only on timesteps when neighbor lists are rebuilt, the coordinates of an atom written to a dump file may be slightly outside the simulation box. Re-neighbor timesteps will not typically coincide with the timesteps dump snapshots are written. See the dump\_ modify pbc command if you with to force coordinates to be strictly inside the simulation box.}
+\end{framed}
+
+
+\begin{thebibliography}{9}
+
+\bibitem{dumplammps}
+  Sandia National Laboratories,
+  \url{http://lammps.sandia.gov/doc/dump.html},
+  Consultado 02/09/17
+
+\end{thebibliography}
+
+\end{document}
+

@@ -1,0 +1,30 @@
+#Nuclear model
+units             lj
+atom_style        atomic
+timestep          0.10
+region            box block 0 42.2 0 42.2 0 21.1
+create_box        2 box
+mass              1 938.0
+mass              2 938.0
+#
+#create_atoms      2 random 0400 1789 box
+#create_atoms      1 random 1000 1917 box
+create_atoms      1 random 3000 1917 box
+#
+pair_style        table linear 5000
+neighbor          1.2 bin
+neigh_modify      every 1 delay 0 check yes one 8000 page 80000
+thermo_style      custom step temp ke epair etotal press cpu
+thermo            500
+pair_coeff        1 1 pandha_msc.table NN 5.4
+pair_coeff        1 2 pandha_msc.table NP 5.4
+pair_coeff        2 2 pandha_msc.table PP 5.4 
+#
+min_style         hftn 
+minimize          0 1.0 1000 100000
+velocity          all create 2.0 1776
+#
+#read_dump         output_3000_NN.lammpstrj 0 x y z vx vy vz purge yes add yes replace no box yes
+dump myDUMP all custom 10000 output_3000_NN.lammpstrj id type x y z vx vy vz 
+fix 1 all nvt temp 4.0 1.0 10.0
+run 0500000  
