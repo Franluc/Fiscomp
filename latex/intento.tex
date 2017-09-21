@@ -109,7 +109,15 @@ Para la obtención del coeficiente de difusión $D$ debemos resolver la ecuació
 \phi(r_{i,j,k},t_{n}) = \frac{m^{3}}{L^{3}}N_{i,j,k} 
 \end{equation}
 en donde $r_{i,j,k}$ representa la posición de la celda i-j-k-ésima y $N_{i,j,k}$ el número de partículas en ésta.
-\section{\label{seq:desa}Desarrollo}
+\section{\label{seq:msd}Mean Square Displacement}
+
+\begin{figure}[H]
+\centerline{
+  \includegraphics[width=1.0\linewidth]{msdvst.png}}
+  \caption{\small MSD para una simulación con posiciones corregidas para eliminar las condiciones periodicas de contorno en función del tiempo. El valor de D obtenido es de $0.087 \pm 0.001$ en unidades de lj.}
+  \label{fig:forcs}
+\end{figure}
+
 
 \section{\label{seq:details}Detalles técnicos}
 Las posiciones de las partículas son obtenidas a través del comando $dump$ en LAMMPS. En la documentación\cite{dumplammps} sobre este comando se hace una aclaración sobre las condiciones periódicas de contorno

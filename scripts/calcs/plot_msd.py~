@@ -1,0 +1,15 @@
+import numpy as np
+import math as m
+import matplotlib.pyplot as plt
+
+#----------------------------------------------------------------------------
+#plot_msd.py:
+#----------------------------------------------------------------------------
+#El siguiente archivo toma el archivo de msd y extrae un coeficiente de
+#difusion en el regimen lineal
+
+#Author by Tavella Franco y Longo Lucas
+#----------------------------------------------------------------------------
+data = np.genfromtxt('output_difusion_mds.txt', names = True)
+plt.plot(data['time-step'],data['msd'],'o')
+plt.show()

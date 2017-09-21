@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.7)  20 SEP 2017 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.7)  20 SEP 2017 16:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -994,114 +994,136 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 112.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 112.
+
+<msdvst.png, id=46, 1175.1102pt x 641.0349pt>
+File: msdvst.png Graphic file (type png)
+ <use msdvst.png>
+Package pdftex.def Info: msdvst.png used on input line 116.
+(pdftex.def)             Requested size: 246.0pt x 134.19092pt.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 114.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 114.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 114.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 114.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 114.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 114.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 118.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 118.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 118.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 118.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 118.
+(babel)             in language  on input line 120.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 118.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 118.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 118.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 118.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 118.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 118.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 118.
+(babel)             in language  on input line 120.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./potentials.png> <./fo
 rces.png>]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 121.
+(babel)             in language  on input line 122.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 121.
+(babel)             in language  on input line 122.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 121.
+(babel)             in language  on input line 122.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 121.
+(babel)             in language  on input line 122.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 121.
+(babel)             in language  on input line 122.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 121.
+(babel)             in language  on input line 122.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 129.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 129.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 129.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 129.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 129.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 129.
 
 No file intento.bbl.
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 130.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 138.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 138.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 130.
-[2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 130.
+(babel)             in language  on input line 138.
+[2 <./msdvst.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 138.
  (./intento.aux)
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 130.
-Package rerunfilecheck Info: File `intento.out' has not changed.
-(rerunfilecheck)             Checksum: 23A761104DAD4104C258D1BF49CB48F8;507.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 138.
+
+
+Package rerunfilecheck Warning: File `intento.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `intento.out':
+(rerunfilecheck)             Before: 23A761104DAD4104C258D1BF49CB48F8;507
+(rerunfilecheck)             After:  11DFD54FD85478F2C4F167EE991DCAFE;522.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
+
+
  ) 
 Here is how much of TeX's memory you used:
- 12795 strings out of 493029
- 180815 string characters out of 6136235
- 314526 words of memory out of 5000000
- 16121 multiletter control sequences out of 15000+600000
+ 12807 strings out of 493029
+ 180967 string characters out of 6136235
+ 313526 words of memory out of 5000000
+ 16130 multiletter control sequences out of 15000+600000
  16974 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,6n,96p,1062b,422s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on intento.pdf (2 pages, 260290 bytes).
+pdfTeX warning (dest): name{section*.9} has been referenced but does not exis
+t, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on intento.pdf (2 pages, 316796 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
- 75 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 143 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
+ 21 named destinations out of 1000 (max. 500000)
+ 80 words of extra memory for PDF output out of 10000 (max. 10000000)
 
