@@ -147,7 +147,7 @@ El algoritmo que hemos utilizado para obtener $MSD(t)$ es el siguiente (ver Hail
 
 2) Loop sobre orígenes de tiempos $t_j$, $\{j=1,...,M(t)\}$
 
-3) Para cada origen de tiempo $t_o$, loop sobre $i$, $\{i=1,...,N\}$ las $N$ partículas, para leer $\vec{r}_i(t_j+t)$ y $\vec{r}_i(t)$
+3) Para cada origen de tiempo $t_o$, loop sobre $i$, $\{i=1,...,N\}$ las $N$ partículas, para leer $\vec{r}_i(t_j+t)$ y $\vec{r}_i(t_j)$
 
 4) Acumular $[\vec{r}_i(t_{j}+t)-\vec{r}_i(t_{j})]^2$
 
@@ -166,8 +166,8 @@ El algoritmo que hemos utilizado para obtener $MSD(t)$ es el siguiente (ver Hail
 
 \begin{figure}[H]
 \centerline{
-  \includegraphics[width=1.0\linewidth]{msd_t400.png}}
-  \caption{\small MSD para una simulación con posiciones corregidas para eliminar las condiciones periodicas de contorno en función del tiempo. timestep 0.5 dump 50 run 40000 temp 4.0}
+  \includegraphics[width=1.0\linewidth]{msd.png}}
+  \caption{\small MSD para una simulación con posiciones corregidas para eliminar las condiciones periodicas de contorno en función del tiempo. timestep 0.1 dump 10 run 10000 temp 4.0}
   \label{fig:msd_t400} 
 \end{figure}
 
@@ -175,7 +175,7 @@ A partir de la ecuación \ref{eq:D_einst} se calculo $D$ para cada tiempo $t$.
 
 \begin{figure}[H]
 \centerline{
-  \includegraphics[width=1.0\linewidth]{D_t400.png}}
+  \includegraphics[width=1.0\linewidth]{dif.png}}
   \caption{\small Coeficiente de Difusion $D$ para protones($Z$) y neutrones ($N$)}
   \label{fig:D_t400}
 \end{figure}
@@ -205,30 +205,24 @@ VACF(t)=\frac{1}{M.N}\sum_{t_0}^{M}\sum_{i}^{N}\vec{v}_i(t_0).\vec{v}_i(t_0+t)
 \begin{figure}[H]
 \centerline{
   \includegraphics[width=1.0\linewidth]{vacf_N_200.png}}
-  \caption{\small Función de autocorrelación de velocidades para neutrones. timestep 0.02 dump 50 run 20000 temp 4.0}
+  \caption{\small Función de autocorrelación de velocidades para neutrones. timestep 0.1 dump 10 run 10000 temp 4.0}
   \label{fig:vacf_N_200}
 \end{figure}
 
 \begin{figure}[H]
 \centerline{
   \includegraphics[width=1.0\linewidth]{vacf_Z_200.png}}
-  \caption{\small Función de autocorrelación de velocidades para protones. timestep 0.02 dump 50 run 20000 temp 4.0}
+  \caption{\small Función de autocorrelación de velocidades para protones. timestep 0.1 dump 10 run 10000 temp 4.0}
   \label{fig:vacf_Z_200}
 \end{figure}
 
-\begin{figure}
-\centerline{
-  \includegraphics[width=1.0\linewidth]{vacf_N_50.png}}
-  \caption{\small Función de autocorrelación de velocidades para neutrones. (Zoom)}
-  \label{fig:vacf_N_50}
-\end{figure}
+Integracion de la funcion VACF mediante la regla de Simpson.\\
+Numero de puntos: 401\\
+Numero de areas de Simpson: 200\\
+Integral de VACF protones=0.0435208564516\\
+Integral de VACF neutrones=0.0982231090351\\
 
-\begin{figure}
-\centerline{
-  \includegraphics[width=1.0\linewidth]{vacf_Z_50.png}}
-  \caption{\small Función de autocorrelación de velocidades para protones. (Zoom)}
-  \label{fig:vacf_Z_50}
-\end{figure}
+
 
 \section{\label{seq:details}Detalles técnicos}
 Las posiciones de las partículas son obtenidas a través del comando $dump$ en LAMMPS. En la documentación\cite{dumplammps} sobre este comando se hace una aclaración sobre las condiciones periódicas de contorno
