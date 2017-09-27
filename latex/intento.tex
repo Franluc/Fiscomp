@@ -36,6 +36,7 @@
 \usepackage{subfig} % PARA PONER SUBFIGURAS
 \usepackage{listings} % PARA CODIGO
 \usepackage{framed} % PARA CAJITAS
+\usepackage{verbatim} % PARA COMMENTS
 \lstset{ %
   basicstyle=\footnotesize,        % the size of the fonts that are used for the code
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
@@ -110,12 +111,19 @@ Para la obtención del coeficiente de difusión $D$ debemos resolver la ecuació
 \end{equation}
 en donde $r_{i,j,k}$ representa la posición de la celda i-j-k-ésima y $N_{i,j,k}$ el número de partículas en ésta.
 \section{\label{seq:msd}Mean Square Displacement}
+En las figuras \ref{fig:msdneut} y \ref{fig:msdprot} vemos los desplazamientos cuadráticos medios para una simulación con protones y neutrones juntos.
+\begin{figure}[H]
+\centerline{
+  \includegraphics[width=1.0\linewidth]{msdvst_neut.png}}
+  \caption{\small MSD de Neutrones para una simulación con posiciones corregidas para eliminar las condiciones periodicas de contorno en función del tiempo. El valor de D obtenido es de $0.087 \pm 0.001$ en unidades de lj.}
+  \label{fig:msdneut}
+\end{figure}
 
 \begin{figure}[H]
 \centerline{
-  \includegraphics[width=1.0\linewidth]{msdvst.png}}
-  \caption{\small MSD para una simulación con posiciones corregidas para eliminar las condiciones periodicas de contorno en función del tiempo. El valor de D obtenido es de $0.087 \pm 0.001$ en unidades de lj.}
-  \label{fig:forcs}
+  \includegraphics[width=1.0\linewidth]{msdvst_prot.png}}
+  \caption{\small MSD de Protones para una simulación con posiciones corregidas para eliminar las condiciones periodicas de contorno en función del tiempo. El valor de D obtenido es de $0.038 \pm 0.001$ en unidades de lj.}
+  \label{fig:msdprot}
 \end{figure}
 
 
@@ -124,7 +132,26 @@ Las posiciones de las partículas son obtenidas a través del comando $dump$ en 
 \begin{framed}
 \textit{Because periodic boundary conditions are enforced only on timesteps when neighbor lists are rebuilt, the coordinates of an atom written to a dump file may be slightly outside the simulation box. Re-neighbor timesteps will not typically coincide with the timesteps dump snapshots are written. See the dump\_ modify pbc command if you with to force coordinates to be strictly inside the simulation box.}
 \end{framed}
-
+Unidades lj \cite{unitslammps}
+\begin{framed}
+\textit{For style lj, all quantities are unitless. Without loss of generality, LAMMPS sets the fundamental quantities mass, sigma, epsilon, and the Boltzmann constant = 1. The masses, distances, energies you specify are multiples of these fundamental values. The formulas relating the reduced or unitless quantity (with an asterisk) to the same quantity with units is also given. Thus you can use the mass \& sigma \& epsilon values for a specific material and convert the results from a unitless LJ simulation into physical quantities.}
+\begin{comment}
+mass = mass or m
+distance = sigma, where x* = x / sigma
+time = tau, where t* = t (epsilon / m / sigma^2)^1/2
+energy = epsilon, where E* = E / epsilon
+velocity = sigma/tau, where v* = v tau / sigma
+force = epsilon/sigma, where f* = f sigma / epsilon
+torque = epsilon, where t* = t / epsilon
+temperature = reduced LJ temperature, where T* = T Kb / epsilon
+pressure = reduced LJ pressure, where P* = P sigma^3 / epsilon
+dynamic viscosity = reduced LJ viscosity, where eta* = eta sigma^3 / epsilon / tau
+charge = reduced LJ charge, where q* = q / (4 pi perm0 sigma epsilon)^1/2
+dipole = reduced LJ dipole, moment where *mu = mu / (4 pi perm0 sigma^3 epsilon)^1/2
+electric field = force/charge, where E* = E (4 pi perm0 sigma epsilon)^1/2 sigma / epsilon
+density = mass/volume, where rho* = rho sigma^dim
+\end{comment}
+\end{framed}
 
 \begin{thebibliography}{9}
 
@@ -132,6 +159,10 @@ Las posiciones de las partículas son obtenidas a través del comando $dump$ en 
   Sandia National Laboratories,
   \url{http://lammps.sandia.gov/doc/dump.html},
   Consultado 02/09/17
+\bibitem{unitslammps}
+  Sandia National Laboratories,
+  \url{http://lammps.sandia.gov/doc/units.html},
+  Consultado 21/09/17
 
 \end{thebibliography}
 
