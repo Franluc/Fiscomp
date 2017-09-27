@@ -119,12 +119,117 @@ En las figuras \ref{fig:msdneut} y \ref{fig:msdprot} vemos los desplazamientos c
   \label{fig:msdneut}
 \end{figure}
 
+La relación de Einstein para difusión establece una relación entre las posiciones de las moléculas y el coeficiente de difusión D.
+
+\begin{equation}\label{eq:rel_einst}
+2tD=\frac{1}{3}<[\vec{r}(t)-\vec{r}(t_0)]^2>
+\end{equation}
+
+Este resultado es aplicable cuando el tiempo $t$ es largo en comparación al tiempo promedio entre colisiones. Es posible entonces obtener un valor para D:
+
+\begin{equation}\label{eq:D_einst}
+D=\lim_{t \to \infty}\frac{<[\vec{r}(t)-\vec{r}(t_0)]^2>}{6t}
+\end{equation} 
+
+En las ecuaciones \ref{eq:rel_einst} y \ref{eq:D_einst} el valor $<[\vec{r}(t)-\vec{r}(t_0)]^2>$ es el desplazamiento cuadrático medio $MSD(t)$ del sistema  a tiempo $t$. El símbolo $<>$ debe entenderse como un promedio sobre el número de partículas y sobre orígenes de tiempo $t_0$.
+
+EL coeficiente de difusión $D$ puede también ser evaluado de otras maneras. La relación de Einstein puede reescribirse como:(Ver Haile pág 302)
+
+\begin{equation}\label{eq:D_einst_2}
+D=\frac{1}{6}\lim_{t \to \infty}\frac{d}{dt}<[\vec{r}(t)-\vec{r}(t_0)]^2>
+\end{equation}
+
+La ecuación \ref{eq:D_einst_2} muestra que $D$ es proporcional a la pendiente del desplazamiento cuadrático medio a tiempos largos. La forma \ref{eq:D_einst_2} se prefiere a la forma \ref{eq:D_einst} en paticular para bajas densidades.\\
+
+El desplazamiento cuadrático medio del sistema de $N$ partículas puede aproximarse como:
+
+\begin{equation}\label{eq:MSD}
+MSD(t)=\frac{1}{M.N}\sum_{t_0}^{M}\sum_{i}^{N}[\vec{r}_i(t_0+t)-\vec{r}_i(t_0)]^2
+\end{equation}
+
+Donde $N$ es el número de partículas y $M$ es el número de orígenes de tiempo disponibles. Para un total de $L$ pasos temporales separados por $\Delta t$, M depende del tiempo $t$ de la medición mediante: $M=L-\frac{t}{\Delta t}$. 
+
+El algoritmo que hemos utilizado para obtener $MSD(t)$ es el siguiente (ver Haile pág 284):
+
+1) Elegir un valor para el tiempo t
+
+2) Loop sobre orígenes de tiempos $t_j$, $\{j=1,...,M(t)\}$
+
+3) Para cada origen de tiempo $t_o$, loop sobre $i$, $\{i=1,...,N\}$ las $N$ partículas, para leer $\vec{r}_i(t_j+t)$ y $\vec{r}_i(t_j)$
+
+4) Acumular $[\vec{r}_i(t_{j}+t)-\vec{r}_i(t_{j})]^2$
+
+5) Volver al paso (1) hasta barrer todos los $t$
+
+ nos permite hallar el coeficiente de difusión dado que:
+
+ 
+
 \begin{figure}[H]
 \centerline{
   \includegraphics[width=1.0\linewidth]{msdvst_prot.png}}
   \caption{\small MSD de Protones para una simulación con posiciones corregidas para eliminar las condiciones periodicas de contorno en función del tiempo. El valor de D obtenido es de $0.038 \pm 0.001$ en unidades de lj.}
   \label{fig:msdprot}
 \end{figure}
+
+\begin{figure}[H]
+\centerline{
+  \includegraphics[width=1.0\linewidth]{msd.png}}
+  \caption{\small MSD para una simulación con posiciones corregidas para eliminar las condiciones periodicas de contorno en función del tiempo. timestep 0.1 dump 10 run 10000 temp 4.0}
+  \label{fig:msd_t400} 
+\end{figure}
+
+A partir de la ecuación \ref{eq:D_einst} se calculo $D$ para cada tiempo $t$.
+
+\begin{figure}[H]
+\centerline{
+  \includegraphics[width=1.0\linewidth]{dif.png}}
+  \caption{\small Coeficiente de Difusion $D$ para protones($Z$) y neutrones ($N$)}
+  \label{fig:D_t400}
+\end{figure}
+
+\section{\label{seq:vaf}Velocity Autocorrelation Function}
+
+Las relación de Green-Kubo permite relacionar el desplazamiento cuadrático medio de una cantidad dinámica $A$ con la integral de una funcion de autocorrelación:
+
+ \begin{equation}\label{eq:GK}
+ \lim_{t \to \infty} \frac{<[A(t)-A(t_0)]^2>}{2t}=\int_{0}^{\infty}d\tau<\dot{A}(\tau)\dot{A}(\tau_0)>
+\end{equation}
+
+En particular para el coeficiente de difusión, la relación de Green-Kubo es:
+
+ \begin{equation}\label{eq:GK_D}
+ D=\frac{1}{3}\int_{0}^{\infty}dt<\vec{v}(t)\vec{v}(t_0)>
+\end{equation}
+
+Aquí $<\vec{v}(t)\vec{v}(t_0)>$ es la función de autocorrelación de velocidades $VACF(t)$. Nuevamente el símbolo $<>$ indica un promedio sobre el número de partículas y sobre orígenes de tiempos $t_0$.
+
+Para calcular $VACF(t)$ hemos utilizado nuevamente el algoritmo ya usado para el $MSD(t)$:
+
+\begin{equation}\label{eq:MSD}
+VACF(t)=\frac{1}{M.N}\sum_{t_0}^{M}\sum_{i}^{N}\vec{v}_i(t_0).\vec{v}_i(t_0+t)
+\end{equation}
+
+\begin{figure}[H]
+\centerline{
+  \includegraphics[width=1.0\linewidth]{vacf_N_200.png}}
+  \caption{\small Función de autocorrelación de velocidades para neutrones. timestep 0.1 dump 10 run 10000 temp 4.0}
+  \label{fig:vacf_N_200}
+\end{figure}
+
+\begin{figure}[H]
+\centerline{
+  \includegraphics[width=1.0\linewidth]{vacf_Z_200.png}}
+  \caption{\small Función de autocorrelación de velocidades para protones. timestep 0.1 dump 10 run 10000 temp 4.0}
+  \label{fig:vacf_Z_200}
+\end{figure}
+
+Integracion de la funcion VACF mediante la regla de Simpson.\\
+Numero de puntos: 401\\
+Numero de areas de Simpson: 200\\
+Integral de VACF protones=0.0435208564516\\
+Integral de VACF neutrones=0.0982231090351\\
+
 
 
 \section{\label{seq:details}Detalles técnicos}
