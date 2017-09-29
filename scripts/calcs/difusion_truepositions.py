@@ -78,34 +78,34 @@ for n in range(0,Numpart):
   Vypart[i]=float(lines[datastart[i]+n].split(' ')[6])
   Vzpart[i]=float(lines[datastart[i]+n].split(' ')[7])
  for i in range(0,len(Xpart)-1):
-  xold=Xpart[i]
-  yold=Ypart[i]
-  zold=Zpart[i]
-  xnew=Xpart[i+1]
-  ynew=Ypart[i+1]
-  znew=Zpart[i+1]
-  dx=xnew-xold
-  dy=ynew-yold
-  dz=znew-zold
+  xold=Xpart[i]/L_x
+  yold=Ypart[i]/L_y
+  zold=Zpart[i]/L_z
+  xnew=Xpart[i+1]/L_x
+  ynew=Ypart[i+1]/L_y
+  znew=Zpart[i+1]/L_z
+  dxfalse=xnew-xold
+  dyfalse=ynew-yold
+  dzfalse=znew-zold
+  dxtrue=dxfalse-int(round(dxfalse))
+  dytrue=dyfalse-int(round(dyfalse))
+  dztrue=dzfalse-int(round(dzfalse))
+  Xpart[i+1]=(xold+dxtrue)*L_x
+  Ypart[i+1]=(yold+dytrue)*L_y
+  Zpart[i+1]=(zold+dztrue)*L_z 
   # Si la diferencia es mayor a L/2 es que hubo correccion por C.C.
-  if(dx < -L_x/2):
-      Xpart[i+1] = xnew + L_x
-  elif(dx > L_x/2):
-      Xpart[i+1] = xnew - L_x
-  if(dy < -L_y/2):
-      Ypart[i+1] = ynew + L_y
-  elif(dy > L_y/2):
-      Ypart[i+1] = ynew - L_y
-  if(dz < -L_z/2):
-      Zpart[i+1] = znew + L_z
-  elif(dz > L_z/2):
-      Zpart[i+1] = znew - L_z
-  #dxtrue=dx-int(round(dx,0))
-  #dytrue=dx-int(round(dy,0))
-  #dztrue=dx-int(round(dz,0))
-  #Xpart[i+1]=xold+dxtrue
-  #Ypart[i+1]=yold+dytrue
-  #Zpart[i+1]=zold+dztrue
+  #if(dx < -L_x/2):
+  #    Xpart[i+1] = xnew + L_x
+  #elif(dx > L_x/2):
+  #    Xpart[i+1] = xnew - L_x
+  #if(dy < -L_y/2):
+  #    Ypart[i+1] = ynew + L_y
+  #elif(dy > L_y/2):
+  #    Ypart[i+1] = ynew - L_y
+  #if(dz < -L_z/2):
+  #    Zpart[i+1] = znew + L_z
+  #elif(dz > L_z/2):
+  #    Zpart[i+1] = znew - L_z     
  Xtrue[n]=Xpart
  Vx[n]=Vxpart
  Ytrue[n]=Ypart
