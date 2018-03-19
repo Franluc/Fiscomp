@@ -28,7 +28,8 @@ variable          p_tot equal etotal
 
 fix               escribir all print 200 "${p_step} ${p_temp} ${p_ke} ${p_epair} ${p_tot}" file thermo.dat screen no title "step  temp ke epair etotal"
 
-dump              myDUMP all custom 2000 eq_t_2_*.lammpstrj id type x y z vx vy vz 
+dump              myDUMP all custom 2000 eq_t_2.lammpstrj id type x y z vx vy vz 
 fix               1 all nvt temp 2.0 2.0 10.0
 
+restart           2000 eq_t_2_*.restart
 run 20000

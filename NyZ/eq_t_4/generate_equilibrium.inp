@@ -31,5 +31,5 @@ fix               escribir all print 200 "${p_step} ${p_temp} ${p_ke} ${p_epair}
 dump              myDUMP all custom 2000 eq_t_4.lammpstrj id type x y z vx vy vz 
 fix               1 all nvt temp 4.0 4.0 10.0
 
-write_restart 	  eq_t_4_*.restart
+restart 	  2000 eq_t_4_*.restart
 run 20000
