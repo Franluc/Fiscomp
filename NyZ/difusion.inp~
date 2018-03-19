@@ -1,0 +1,28 @@
+#Nuclear model
+#Difusion
+
+units             lj
+atom_style        atomic
+
+pair_style        table linear 5000
+boundary          p p p
+
+read_data	  data.input_ZNyN
+
+neighbor          1.2 bin
+neigh_modify      every 1 delay 0 check yes one 8000 page 80000
+
+timestep          0.1
+
+thermo_style      custom step temp ke epair etotal press cpu
+thermo            500
+pair_coeff        1 1 pandha_msc.table NN 5.4
+pair_coeff        1 2 pandha_msc.table NP 5.4
+pair_coeff        2 2 pandha_msc.table PP 5.4 
+
+#min_style         hftn 
+#minimize          0 1.0 1000 100000
+
+dump myDUMP all custom 50 output_difusion.lammpstrj id type x y z vx vy vz 
+fix 1 all nvt temp 4.0 1.0 10.0
+run 100000

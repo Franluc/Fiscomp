@@ -1,0 +1,83 @@
+LAMMPS (11 Aug 2017)
+# Nuclear model with 75% neutrons and 25% protons
+# Run to generate equilibrium position
+
+units             lj
+atom_style        atomic
+
+pair_style        table linear 5000
+boundary          p p p
+
+read_data	  data.input_ZNyN
+  orthogonal box = (0 0 0) to (42.2 42.2 42.2)
+  1 by 1 by 1 MPI processor grid
+WARNING: Atom style in data file differs from currently defined atom style (../read_data.cpp:493)
+  reading atoms ...
+  6000 atoms
+  reading velocities ...
+  6000 velocities
+
+neighbor          1.2 bin
+neigh_modify      every 1 delay 0 check yes one 8000 page 80000
+
+timestep          0.1
+
+thermo_style      custom step temp ke epair etotal press cpu
+thermo            200
+pair_coeff        1 1 pandha_msc.table NN 5.4
+pair_coeff        1 2 pandha_msc.table NP 5.4
+pair_coeff        2 2 pandha_msc.table PP 5.4
+
+variable          p_step equal step
+variable          p_temp equal temp
+variable          p_ke equal ke
+variable          p_epair equal epair
+variable          p_tot equal etotal
+
+fix               escribir all print 200 "${p_step} ${p_temp} ${p_ke} ${p_epair} ${p_tot}" file thermo.dat screen no title "step  temp ke epair etotal"
+
+dump              myDUMP all custom 2000 eq_t_0-5.lammpstrj id type x y z vx vy vz
+fix               1 all nvt temp 0.5 0.5 10.0
+
+write_restart 	  eq_t_0-5_*.restart
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 8000, page size: 80000
+  master list distance cutoff = 6.6
+  ghost atom cutoff = 6.6
+  binsize = 3.3, bins = 13 13 13
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair table, perpetual
+      attributes: half, newton on
+      pair build: half/bin/atomonly/newton
+      stencil: half/bin/3d/newton
+      bin: standard
+run 20000
+Per MPI rank memory allocation (min/avg/max) = 6.007 | 6.007 | 6.007 Mbytes
+Step Temp KinEng E_pair TotEng Press CPU 
+       0    1.0325194    1.5485209    4.8494575    6.3979784    1.3964372            0 
+     200    1.8729408     2.808943    1.1961304    4.0050733    1.1436101    2.4656019 
+     400    1.4657086    2.1981965   -1.5277905   0.67040608   0.85996028     5.235739 
+     600    0.9968457    1.4950193   -3.0613092   -1.5662898   0.70504037    7.8364239 
+     800   0.67863671    1.0177854   -3.7920893   -2.7743039   0.64509373    10.508185 
+    1000   0.51090001   0.76622229   -4.1155771   -3.3493548     0.636547    13.518624 
+    1200   0.47452421   0.71166769   -4.2195879   -3.5079202   0.64269063    17.265433 
+    1400   0.50905808   0.76345985   -4.1498964   -3.3864365   0.66371642    21.660926 
+    1600   0.50919107   0.76365931   -4.1407209   -3.3770616   0.65502222    24.854488 
+    1800   0.48902889   0.73342108   -4.2243388   -3.4909177   0.62593166    28.721802 
+    2000   0.50163654    0.7523294   -4.2422696   -3.4899402   0.60561575     32.40525 
+    2200   0.50093706   0.75128035   -4.2041548   -3.4528744   0.58872507    35.826532 
+    2400   0.50194282   0.75278875   -4.1736123   -3.4208236   0.58354425    39.270255 
+    2600   0.50566094   0.75836499   -4.1519312   -3.3935662   0.58461972     43.38608 
+    2800     0.499251   0.74875169   -4.1558186   -3.4070669   0.59181263    47.525239 
+    3000   0.50153013   0.75216981   -4.1877176   -3.4355478   0.59709574    50.831105 
+    3200   0.49873013   0.74797052   -4.2155276   -3.4675571   0.60418254    54.306684 
+    3400   0.49555613    0.7432103   -4.2138126   -3.4706023   0.60756231    57.420273 
+    3600   0.50317336   0.75463424    -4.196565   -3.4419308   0.61171182    60.751489 
+    3800   0.50041506   0.75049748   -4.2082647   -3.4577673   0.60642022    63.955824 
+    4000   0.50368717   0.75540484   -4.2057685   -3.4503637   0.60425621    67.115609 
+    4200   0.50511825   0.75755109   -4.2076493   -3.4500982    0.5983982    70.427762 
+    4400   0.49184991   0.73765191   -4.2189635   -3.4813115    0.5916824    73.297369 
+    4600   0.51032156   0.76535476   -4.2147979   -3.4494431   0.59190846    76.436653 
+    4800   0.50422468   0.75621096   -4.1813997   -3.4251888   0.59235453    79.550537 
+    5

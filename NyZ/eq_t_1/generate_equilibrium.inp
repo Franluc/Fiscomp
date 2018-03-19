@@ -1,0 +1,34 @@
+# Nuclear model with 75% neutrons and 25% protons
+# Run to generate equilibrium position
+
+units             lj
+atom_style        atomic
+
+pair_style        table linear 5000
+boundary          p p p
+
+read_data	  data.input_ZNyN
+
+neighbor          1.2 bin
+neigh_modify      every 1 delay 0 check yes one 8000 page 80000
+
+timestep          0.1
+
+thermo_style      custom step temp ke epair etotal press cpu
+thermo            200
+pair_coeff        1 1 pandha_msc.table NN 5.4
+pair_coeff        1 2 pandha_msc.table NP 5.4
+pair_coeff        2 2 pandha_msc.table PP 5.4
+
+variable          p_step equal step
+variable          p_temp equal temp
+variable          p_ke equal ke
+variable          p_epair equal epair
+variable          p_tot equal etotal
+
+fix               escribir all print 200 "${p_step} ${p_temp} ${p_ke} ${p_epair} ${p_tot}" file thermo.dat screen no title "step  temp ke epair etotal"
+
+dump              myDUMP all custom 2000 eq_t_1_*.lammpstrj id type x y z vx vy vz 
+fix               1 all nvt temp 1.0 1.0 10.0
+
+run 20000
