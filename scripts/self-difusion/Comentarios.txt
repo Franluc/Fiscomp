@@ -2,4 +2,4 @@ Calculamos el coeficiente de self-difusion por medio de tres métodos: MSD, VAR,
 
 MSD: mediante el desplazamiento cuadrático medio
 VAR: mediante la varianza de los histogramas de DeltaX
-VACF: mediante la función de autocorrelación de velocidades.
+VACF: mediante la función de autocorrelación de velocidades
