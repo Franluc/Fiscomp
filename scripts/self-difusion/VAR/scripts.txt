@@ -1,0 +1,11 @@
+Esta carpeta contiene tres scripts:
+
+difusion_hist.py: Input: Archivo de trajectorias de lammps para una dada Temp T
+                  Calcula un histograma para cada tiempo tdelay
+                  Output: Imprime para cada tdelay un .txt con: centro  cuenta
+                                                                 ...      ...
+                                                                 Gaussian Fit:
+                                                                 Amp mu sigma var dmu dsigma dvar
+                                                                  .    .    .    .   .    .     .
+difusion_plot_hist.py: Input: cada uno de los .txt corrspondientes a cada histograma por tdelay.
+                       Output: Grafica todos los histogramas.
