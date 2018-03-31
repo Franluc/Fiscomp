@@ -9,3 +9,6 @@ difusion_hist.py: Input: Archivo de trajectorias de lammps para una dada Temp T
                                                                   .    .    .    .   .    .     .
 difusion_plot_hist.py: Input: cada uno de los .txt corrspondientes a cada histograma por tdelay.
                        Output: Grafica todos los histogramas.
+                       
+difusion_plot_varianzas.py: Input: cada uno de los .txt corrspondientes a cada histograma por tdelay.
+                            Output: Grafica Var(tdelay) y realiza un ajuste lineal dando el valor de pendiente y su error.
