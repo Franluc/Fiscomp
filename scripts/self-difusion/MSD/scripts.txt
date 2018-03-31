@@ -1,0 +1,10 @@
+Esta carpeta contiende dos scripts:
+
+difusion_msd.py: Input: archivo de trayectorias de lammps. 
+                 Calcula el MSD, (Medium square displacement) para cada time step.
+                 Output: 'time-step   Msd  VarMsd  SigmaMsd  Diffusion \n'
+                 
+difusion_msd_linear fir.py: Input: 'time-step   Msd  VarMsd  SigmaMsd  Diffusion \n'
+                            Realiza un ajuste lineal.
+                            Output: Grafica Msd(t) y da los valores de Pendiente del ajuste y su Error
+                 
