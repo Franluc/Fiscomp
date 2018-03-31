@@ -1,0 +1,11 @@
+Esta carpeta contiene tres scripts:
+
+difusion_fav.py: Input: Archivo de trajectorias de lammps
+                 Calcula la funcion de autocorrelacion de velocidades favx, favy, favz, y fav_total
+                 Output: time-step   fav_x fav_y fav_z fav_total 
+
+difusion_plot.py: Input: time-step   fav_x fav_y fav_z fav_total 
+                  Output: Grafica las cuatro funciones
+                  
+difusion_simpson.py: Input: time-step   fav_x fav_y fav_z fav_total 
+                     Output: integra la funcion de autocorrelacion de velocidades e imprime el valor de la integral.
