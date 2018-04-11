@@ -1,3 +1,5 @@
 lammps-11Aug17/
 *.lammpstrj
 *.dat
+*.lammps
+*.restart
